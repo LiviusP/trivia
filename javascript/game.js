@@ -5,10 +5,10 @@ exports = typeof window !== "undefined" && window !== null ? window : global;
 exports.Game = function() {
   var players          = [];
   
-  var popQuestions     = new Array();
-  var scienceQuestions = new Array();
-  var sportsQuestions  = new Array();
-  var rockQuestions    = new Array();
+  var popQuestions     = [];
+  var scienceQuestions = [];
+  var sportsQuestions  = [];
+  var rockQuestions    = [];
 
   var currentPlayer    = 0;
   var isGettingOutOfPenaltyBox = false;
@@ -68,6 +68,7 @@ exports.Game = function() {
 	return category;	
   };
 
+  //initialize question arrays
  
   for(var i = 0; i < 50; i++){
     popQuestions.push("Pop Question "+i);
@@ -163,7 +164,7 @@ exports.Game = function() {
     }
   };
   
-  nextPlayer = function(){	  
+  var nextPlayer = function(){	  
 	currentPlayer += 1;
         if(currentPlayer == players.length)
           currentPlayer = 0; 
